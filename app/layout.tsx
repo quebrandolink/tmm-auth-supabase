@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import Image from "next/image";
 import { theme } from "../configs/theme";
+import "./globals.css";
 
 
 export const metadata: Metadata = {
@@ -29,10 +30,13 @@ export default function RootLayout({
           <header className="mb-8">
             {theme.logoUrl && (
               <div className="mb-4 flex justify-center">
-                <img
+                <Image
                   src={theme.logoUrl}
                   alt={`${theme.name} Logo`}
                   className="h-12 m-6 w-auto"
+                  width={120}
+                  height={48}
+                  priority
                 />
               </div>
             )}
