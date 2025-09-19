@@ -4,6 +4,7 @@
 import { supabase } from '@/lib/supabaseClient'
 import { getHashParams, getQueryParams } from '@/lib/url'
 import { useEffect, useState } from 'react'
+import { AlertOctagon as AlertIcon } from 'lucide-react';
 
 
 export default function AuthFromUrl({ onAuth }: { onAuth?: () => void }) {
@@ -72,7 +73,7 @@ export default function AuthFromUrl({ onAuth }: { onAuth?: () => void }) {
             {status === 'working' && 'Processando autenticação...'}
             {status === 'done' && message}
             {status === 'error' && (
-                <span className="text-red-600">{message}</span>
+                <span className="text-red-600"><AlertIcon className="inline mr-2" size={16} /> {message}</span>
             )}
         </div>
     )

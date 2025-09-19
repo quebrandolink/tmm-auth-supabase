@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My White Label App
 
-## Getting Started
+Este projeto é uma aplicação Next.js projetada para ser reutilizável como uma solução white label. Ele permite que você personalize a aparência e a funcionalidade da aplicação para diferentes marcas, mantendo uma base de código comum.
 
-First, run the development server:
+## Estrutura do Projeto
+
+A estrutura do projeto é a seguinte:
+
+```
+supabase-auth-app
+├── src
+│   ├── app
+│   │   ├── layout.tsx          # Layout principal da aplicação
+│   │   ├── page.tsx            # Página inicial da aplicação
+│   │   └── auth
+│   │       ├── confirm-email
+│   │       │   └── page.tsx    # Página de confirmação de e-mail
+│   │       ├── magiclink
+│   │       │   └── page.tsx    # Página de login via link mágico
+│   │       └── reset-password
+│   │           └── page.tsx    # Página de redefinição de senha
+│   ├── themes
+│   │   ├── default
+│   │   │   ├── colors.ts        # Definições de cores para o tema padrão
+│   │   │   ├── typography.ts     # Configurações de tipografia para o tema padrão
+│   │   │   └── index.ts         # Exporta as configurações de tema padrão
+│   │   └── types.ts             # Tipos utilizados para os temas
+│   ├── config
+│   │   ├── brands.ts            # Configurações específicas das marcas
+│   │   └── theme.ts             # Configuração do tema
+│   └── styles
+│       └── globals.css          # Estilos globais da aplicação
+├── package.json                  # Configuração do npm
+├── next.config.js               # Configurações específicas do Next.js
+└── README.md                    # Documentação do projeto
+```
+
+## Instalação
+
+Para instalar as dependências do projeto, execute:
+
+```bash
+npm install
+```
+
+## Uso
+
+Para iniciar a aplicação em modo de desenvolvimento, execute:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A aplicação estará disponível em `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Personalização
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para personalizar a aplicação para diferentes marcas, você pode modificar os arquivos em `src/config/brands.ts` e ajustar os temas em `src/themes/default/`.
 
-## Learn More
+## Contribuição
 
-To learn more about Next.js, take a look at the following resources:
+Sinta-se à vontade para contribuir com melhorias e correções. Para isso, faça um fork do repositório e envie um pull request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licença
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

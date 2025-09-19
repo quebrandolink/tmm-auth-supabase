@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { theme } from "../configs/theme";
 
 
 export const metadata: Metadata = {
-  title: 'Team Matheus Miguel',
+  title: theme.name,
   description: 'Rotas personalizadas de autenticação com Supabase',
 };
 
@@ -14,11 +15,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className="min-h-screen bg-gray-50 text-gray-900">
+      <body className="min-h-screen" style={{
+        '--primary': theme.primaryColor,
+        '--secondary': theme.secondaryColor,
+        '--background': theme.backgroundColor,
+        '--text': theme.textColor,
+        '--radius': theme.borderRadius,
+        fontFamily: theme.fontFamily,
+        backgroundColor: theme.backgroundColor,
+        color: theme.textColor,
+      } as React.CSSProperties}>
         <main className="mx-auto max-w-lg p-6">
           <header className="mb-8">
-            <h1 className="text-2xl font-semibold">Team Matheus Miguel</h1>
-            <p className="text-sm text-gray-600">Confirmação de e‑mail, magic link e redefinição de senha</p>
+            {theme.logoUrl && (
+              <div className="mb-4 flex justify-center">
+                <img
+                  src={theme.logoUrl}
+                  alt={`${theme.name} Logo`}
+                  className="h-12 m-6 w-auto"
+                />
+              </div>
+            )}
+            <h1 className="text-4xl text-center font-semibold mb-2" style={{ color: theme.primaryColor }}>{theme.name}</h1>
+            <p className="text-center text-gray-600 text-lg" style={{ color: theme.textColor }}>Confirmação de e‑mail, magic link e redefinição de senha</p>
           </header>
           <div className="rounded-2xl bg-white p-6 shadow">
             {children}
