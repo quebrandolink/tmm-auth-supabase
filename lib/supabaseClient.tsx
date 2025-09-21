@@ -1,5 +1,4 @@
 import { createClient } from '@supabase/supabase-js'
-import { createServerClient, serializeCookieHeader } from "@supabase/ssr"
 
 
 export const supabase = createClient(
