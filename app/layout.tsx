@@ -3,6 +3,7 @@ import Image from "next/image";
 import { theme } from "../configs/theme";
 import "./globals.css";
 
+import configs from "../next.config";
 
 export const metadata: Metadata = {
   title: theme.name,
@@ -14,6 +15,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const { basePath } = configs;
   return (
     <html lang="pt-br">
       <body className="min-h-screen" style={{
@@ -31,7 +33,7 @@ export default function RootLayout({
             {theme.logoUrl && (
               <div className="mb-4 flex justify-center">
                 <Image
-                  src={theme.logoUrl}
+                  src={`${basePath}${theme.logoUrl}`}
                   alt={`${theme.name} Logo`}
                   className="h-12 m-6 w-auto"
                   width={120}

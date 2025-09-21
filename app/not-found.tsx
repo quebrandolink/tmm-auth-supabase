@@ -1,9 +1,11 @@
 import Image from "next/image";
 
+import configs from "../next.config";
+
 export default function NotFound() {
     return <div className="text-center m-6" >
         <Image
-            src={`${process.env.NEXT_PUBLIC_BASE_PATH}/not-found.svg`}
+            src={`${configs.basePath}/not-found.svg`}
             alt="404"
             width={400}
             height={300}
